@@ -8,5 +8,12 @@ from starkware.cairo.common.hash import hash2
 
 // Computes the Pedersen hash chain on an array of size `arr_len` starting from `arr_ptr`.
 func hash_chain{hash_ptr: HashBuiltin*}(arr_ptr: felt*, arr_len: felt) -> (result: felt) {
-    return (result=1);
+    if (arr_len == 2){
+        let (z) = hash2{hash_ptr=hash_ptr}(arr_ptr[0], arr_ptr[1]);
+        %{print(ids.z)%}
+        return (result=z);
+    }
+    let (new_block) = hash_chain{hash_ptr=hash_ptr}(arr_ptr, arr_len - 1);
+    let (y) = hash2{hash_ptr=hash_ptr}(new_block, arr_ptr[arr_len - 1]);
+    return(result=y);
 }
