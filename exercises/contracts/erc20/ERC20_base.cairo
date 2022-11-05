@@ -216,7 +216,7 @@ func _transfer{syscall_ptr: felt*, pedersen_ptr: HashBuiltin*, range_check_ptr}(
     alloc_locals;
     assert_not_zero(sender);
     assert_not_zero(recipient);
-    uint256_check(amount);   
+    uint256_check(amount);
 
     let (local sender_balance: Uint256) = ERC20_balances.read(account=sender);
 

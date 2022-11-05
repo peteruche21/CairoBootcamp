@@ -16,7 +16,7 @@ func pattern{bitwise_ptr: BitwiseBuiltin*, range_check_ptr}(
 ) -> (true: felt) {
     alloc_locals;
     local bitres;
-    %{  
+    %{
         print(bin(ids.n & ((1 << 8) -1 )))
         if ((ids.n & ((1 << 8) - 1)) == 0b01010101):
             ids.bitres = 1

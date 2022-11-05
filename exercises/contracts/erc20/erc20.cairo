@@ -142,4 +142,3 @@ func exclusive_faucet{syscall_ptr: felt*, pedersen_ptr: HashBuiltin*, range_chec
 ) -> (success: felt) {
     return (success=1);
 }
-

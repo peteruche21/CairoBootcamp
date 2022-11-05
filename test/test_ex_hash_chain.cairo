@@ -16,11 +16,11 @@ func test_hash_chain{pedersen_ptr: HashBuiltin*}() {
     assert 1323616023845704258113538348000047149470450086307731200728039607710316625916 = result;
 
     let (local array: felt*) = alloc();
-    assert array[0] = 2; // YES
+    assert array[0] = 2;  // YES
     assert array[1] = 100;
     assert array[2] = 12;
-    assert array[3] = 2; // YES
-    assert array[4] = 422; // YES
+    assert array[3] = 2;  // YES
+    assert array[4] = 422;  // YES
     assert array[5] = 898;
     assert array[6] = 10;
     assert array[7] = 31;

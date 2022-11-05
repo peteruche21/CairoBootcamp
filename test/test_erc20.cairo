@@ -63,7 +63,7 @@ func test_faucet{syscall_ptr: felt*, pedersen_ptr: HashBuiltin*, range_check_ptr
     // Call as test_acc2
     %{ stop_prank_callable = start_prank(ids.TEST_ACC2, ids.contract_address) %}
 
-    //# Get airdrop over limit
+    // # Get airdrop over limit
     %{ expect_revert() %}
     Erc20.faucet(contract_address=contract_address, amount=Uint256(1000000, 0));
     %{ stop_prank_callable() %}
@@ -95,7 +95,7 @@ func test_burn_haircut{syscall_ptr: felt*, pedersen_ptr: HashBuiltin*, range_che
     let (start_user_balance) = Erc20.balanceOf(
         contract_address=contract_address, account=TEST_ACC1
     );
-    %{print("start_user_balance: ",ids.start_user_balance.low)%}
+    %{ print("start_user_balance: ",ids.start_user_balance.low) %}
 
     // Call burn
     Erc20.burn(contract_address=contract_address, amount=Uint256(500, 0));
@@ -105,10 +105,10 @@ func test_burn_haircut{syscall_ptr: felt*, pedersen_ptr: HashBuiltin*, range_che
     let (final_user_balance) = Erc20.balanceOf(
         contract_address=contract_address, account=TEST_ACC1
     );
-    %{print("final_user_balance: ",ids.final_user_balance.low)%}
+    %{ print("final_user_balance: ",ids.final_user_balance.low) %}
 
     // Assert user's balance decreased by 500
-    let (user_diff) = uint256_sub( start_user_balance, final_user_balance);
+    let (user_diff) = uint256_sub(start_user_balance, final_user_balance);
     assert user_diff.low = 500;
 
     // Final admin balance

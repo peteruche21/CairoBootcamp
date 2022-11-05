@@ -1,6 +1,7 @@
 {
-    "cairols.nileVenvCommand": ". ~/.virtualenvs/nile/bin/activate",
-    "cairols.venvCommand": ". ~/.virtualenvs/cairo_venv/bin/activate",
-    "cairols.nileUseVenv": true,
-    "editor.formatOnSave": true
+  "cairols.nileVenvCommand": ". ~/.virtualenvs/nile/bin/activate",
+  "cairols.venvCommand": ". ~/.virtualenvs/cairo_venv/bin/activate",
+  "cairols.nileUseVenv": true,
+  "editor.formatOnSave": true,
+  "cairo.cairoFormatPath": "/home/peter/.local/bin/cairo-format"
 }

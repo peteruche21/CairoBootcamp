@@ -1,4 +1,4 @@
-from starkware.cairo.common.uint256 import (Uint256, uint256_add )
+from starkware.cairo.common.uint256 import Uint256, uint256_add
 
 // Modify both functions so that they increment
 // supplied value and return it
