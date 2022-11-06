@@ -14,20 +14,14 @@ from starkware.cairo.common.math import unsigned_div_rem
 func pattern{bitwise_ptr: BitwiseBuiltin*, range_check_ptr}(
     n: felt, idx: felt, exp: felt, broken_chain: felt
 ) -> (true: felt) {
-    alloc_locals;
-    local bitres;
-    %{
-        print(bin(ids.n & ((1 << 8) -1 )))
-        if ((ids.n & ((1 << 8) - 1)) == 0b01010101):
-            ids.bitres = 1
-        elif ((ids.n >> 1) & 0b01010101):
-            ids.bitres = 1
-        else:
-            ids.bitres = 0
-        print(ids.bitres)
-    %}
-    // let (local shift) = bitwise_and(n, bitres);
-    // %{print(ids.shift)%}
-    // assert [fp + 1] = 01010101;
-    return (bitres,);
+    let (val) = bitwise_xor(n, 85);
+    let sub = n - 85;
+    let sum = n + 85;
+    if(val == sub) {
+        return (true=1);
+    }
+    if(val == sum) {
+        return(true=1);
+    }
+    return (0,);
 }

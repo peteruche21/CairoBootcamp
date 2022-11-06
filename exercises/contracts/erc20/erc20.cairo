@@ -46,7 +46,7 @@ func admin() -> (admin: felt) {
 }
 
 @storage_var
-func whitelist(account: felt) -> (value: felt) {
+func ERC20_whitelist(account: felt) -> (value: felt) {
 }
 // View functions
 //#########################################################################################
@@ -159,7 +159,7 @@ func request_whitelist{syscall_ptr: felt*, pedersen_ptr: HashBuiltin*, range_che
     level_granted: felt
 ) {
     let (caller) = get_caller_address();
-    whitelist.write(caller, 1);
+    ERC20_whitelist.write(caller, 1);
     return (level_granted=1);
 }
 
@@ -167,7 +167,7 @@ func request_whitelist{syscall_ptr: felt*, pedersen_ptr: HashBuiltin*, range_che
 func check_whitelist{syscall_ptr: felt*, pedersen_ptr: HashBuiltin*, range_check_ptr}(
     account: felt
 ) -> (allowed_v: felt) {
-    let (allowed_v) = whitelist.read(account);
+    let (allowed_v) = ERC20_whitelist.read(account);
     return (allowed_v,);
 }
 
