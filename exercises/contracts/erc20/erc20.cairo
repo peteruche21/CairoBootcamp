@@ -143,7 +143,7 @@ func burn{syscall_ptr: felt*, pedersen_ptr: HashBuiltin*, range_check_ptr}(amoun
     let (enough_balance) = uint256_le(amount, balance);
     assert_not_zero(enough_balance);
     // subtract 10% from burn amount
-    let (low, high) = uint256_mul(Uint256(10, 0), amount);
+    let (low, high) = uint256_mul(Uint256(10, 0), amount); // 10 * amount / 100
     let (ten_percent, rem) = uint256_unsigned_div_rem(low, Uint256(100, 0));
     // transfer 10% from caller to admin
     let (local admin_addr) = admin.read();
